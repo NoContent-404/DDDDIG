@@ -8,9 +8,10 @@ cc.Class({
         figure: {
             default : null,
             type : cc.Node
-        }
+        },
+        touch_count:0,
     },
-
+    
     onLoad () {
         cc.diamon = this;
         //开启碰撞检测
@@ -20,12 +21,14 @@ cc.Class({
     },
 
     onCollisionEnter:function(other, self){
-        
+        cc.log(other.node.name+"--this.touch_count碰："+this.touch_count)
         cc.robot_ALLen = cc.robot_en.string;
-        if(other.node.name == "left" || other.node.name == "right" || other.node.name == "railing"){
-            cc.player_leftTouch = true;  //用来表示碰到了方块左右俩边的判断
-            cc.player_left = cc.player_x; 
-            // return;
+        
+        if(other.node.name == "railing"){
+            cc.player_leftTouch = true;
+            cc.player_left = cc.player_x;
+            // this.touch_count = 0;
+            return;
         }
         if(other.node.name == "Lightning"){
             other.node.destroy();
@@ -34,11 +37,13 @@ cc.Class({
             // return;
         }
        if(other.node.name == "mission"){
-            cc.touch_mission = true;//用来判断碰到方块时地图不可以移动
+           this.touch_count++;
+           
+            cc.touch_mission = true;//用来判断碰到方块时,再次触摸地图不可以移动
             cc.player.stuat = false;
             var block_string = other.node.getChildByName("Label").getComponent(cc.Label).string;
-            // cc.log("block_string:",block_string);
             var count = block_string;
+
             var energy = cc.find('Canvas').getChildByName('energyCount').getComponent(cc.Label);
             if(this.figure.getComponent('figure').openStart){
                 other.node.destroy();
@@ -48,7 +53,7 @@ cc.Class({
                 count_en ++;
                 energy.string = count_en;
                 count--;
-                // cc.log("count",count)
+
                 cc.robot_ALLen --;
                 other.node.getChildByName("Label").getComponent(cc.Label).string = count;
                 cc.robot_en.string = cc.robot_ALLen;
@@ -56,11 +61,9 @@ cc.Class({
                     if(cc.endFour){
                         return;
                     }
-
                     if(other.node.getComponent('DiamondNum').isStart){
                         this.figure.getComponent('figure').openStartPattern();  //  开启星星模式
                     }
-
                     other.node.destroy();
                     cc.player.stuat = true;
                 }
@@ -76,16 +79,27 @@ cc.Class({
        }      
     },
     onCollisionExit:function(other,self){
-        if(other.node.name == "mission"){
-            cc.player.stuat = true;
-            cc.touch_mission = false;
-            // cc.player_leftTouch = false;
-            this.unscheduleAllCallbacks();
-        }
-        if(other.node.name == "left" || other.node.name == "right" || other.node.name == "railing"){
-            // cc.log(other.node.name+"结束了碰撞")
+            
+        cc.log(other.node.name+"--this.touch_count离：",this.touch_count)
             cc.player_leftTouch = false;
-        }
+            if(other.node.name == "mission"){
+                this.touch_count--;
+                if(this.touch_count >= 1){   
+                    cc.player.stuat = false;
+                    cc.touch_mission = true;
+                }else {
+                    this.touch_count = 0;
+                    cc.player.stuat = true;
+                    cc.touch_mission = false;
+                    this.unscheduleAllCallbacks();
+                }
+            }
+            // if(other.node.name == "left" || other.node.name == "right"){
+            //     this.touch_count = 0;
+            // }
+             
+        
+    
         
     },
 
