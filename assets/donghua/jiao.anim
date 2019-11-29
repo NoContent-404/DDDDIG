@@ -1,0 +1,31 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "jiao",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 10,
+  "speed": 1,
+  "wrapMode": "38",
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            21.9,
+            -123
+          ]
+        },
+        {
+          "frame": 1,
+          "value": [
+            21.9,
+            -126.3
+          ]
+        }
+      ]
+    }
+  },
+  "events": []
+}

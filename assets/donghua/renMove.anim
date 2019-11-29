@@ -1,0 +1,157 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "renMove",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.26666666666666666,
+  "sample": 15,
+  "speed": 1,
+  "wrapMode": 38,
+  "curveData": {
+    "props": {
+      "position": []
+    },
+    "paths": {
+      "bozi": {
+        "props": {
+          "position": []
+        }
+      },
+      "bozi1": {
+        "props": {
+          "position": []
+        }
+      },
+      "lian1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                8,
+                -83.427,
+                0
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                8,
+                -69.188,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "yanjing1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -9,
+                -57.1
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                -9,
+                -59.3
+              ]
+            }
+          ]
+        }
+      },
+      "yanjing": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                28,
+                -57.2
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                28,
+                -58.5
+              ]
+            }
+          ]
+        }
+      },
+      "zuiba": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                8,
+                -79.4
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                8,
+                -82.3
+              ]
+            }
+          ]
+        }
+      },
+      "jiao": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -10.5,
+                -124.6
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                -10.5,
+                -120.593,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "jiao1": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                23.5,
+                -123
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                23.5,
+                -120.903,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "tou": {
+        "props": {
+          "position": []
+        }
+      }
+    }
+  },
+  "events": []
+}
